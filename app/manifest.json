@@ -1,0 +1,29 @@
+{
+  "name": "WishList",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Add to my wishlist",
+  "icons": {
+    "16": "images/icon-16.png",
+    "128": "images/icon-128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "scripts/chromereload.js",
+      "scripts/background.js"
+    ]
+  },
+  "browser_action": {
+        "default_icon": {
+            "16": "icons/icon-16.png",
+            "128": "icons/icon-128.png"
+        },
+        "default_popup": "popup.html"
+    },
+  "permissions": [
+   "tabs",
+   "cookies",
+   "http://localhost:9000/"
+  ]
+}

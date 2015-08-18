@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "wishlist_chrome_extension",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Add to WishList",
+    "description": "The description of the application"
+  }
+}

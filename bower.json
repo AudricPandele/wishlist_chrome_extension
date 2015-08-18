@@ -1,0 +1,10 @@
+{
+  "name": "wishlist-chrome-extension",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "1.2.6",
+    "chai": "~3.2.0",
+    "mocha": "~2.2.5"
+  }
+}
