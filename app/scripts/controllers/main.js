@@ -9,7 +9,10 @@ angular.module('WishList').controller('MainCtrl', function($scope, $http) {
     });
   }
 
+
 	$scope.addToWishlist = function() {
+    $scope.prograssing = true;
+    $scope.added = false;
     getCookies("http://localhost:9000", "list_id", function(id) {
       if (id) {
         var list_id = id;
@@ -19,10 +22,12 @@ angular.module('WishList').controller('MainCtrl', function($scope, $http) {
 
             $http.post("http://0.0.0.0:9292/wishlistslinks?link="+url+"&wishlist_id="+list_id)
             .success(function(data){
-              alert('Produit ajouté à la liste !');
+              $scope.prograssing = false;
+              $scope.added = true;
             });
         });
       }else {
+          $scope.prograssing = false;
         alert("Veuillez vous connecter à WishList et aller sur la page d'une liste");
       }
     });
