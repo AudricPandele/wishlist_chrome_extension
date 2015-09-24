@@ -23,7 +23,10 @@
       <div class="row" ng-hide="prograssing">
         <div class="col s12 m6 center">
 
-          <a ng-hide="added" ng-click="addToWishlist()" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Add to WishList</a>
+          <input ng-hide="added" ng-model="wishlistlink.price" type="number" placeholder="Price if you want">
+          <pre ng-hide="added">Price = {{wishlistlink.price}} €</pre>
+
+          <a ng-hide="added" ng-click="addToWishlist(wishlistlink.price)" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Add to WishList</a>
           <a ng-show="added" class="disabled btn"><i class="material-icons left">done</i>Added !</a>
 
         </div>
@@ -78,6 +81,5 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/main.js"></script>
-  <script type="text/javascript" src="angular.min.js"></script>
-  <script type="text/javascript" src="main.js"></script>
+
 </html>

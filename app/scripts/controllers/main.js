@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('WishList').controller('MainCtrl', function($scope, $http) {
+
   function getCookies(domain, name, callback) {
     chrome.cookies.get({"url": domain, "name": name}, function(cookie) {
         if(callback) {
@@ -9,8 +10,7 @@ angular.module('WishList').controller('MainCtrl', function($scope, $http) {
     });
   }
 
-
-	$scope.addToWishlist = function() {
+	$scope.addToWishlist = function(price) {
     $scope.prograssing = true;
     $scope.added = false;
     getCookies("http://localhost:9000", "list_id", function(id) {
@@ -22,6 +22,7 @@ angular.module('WishList').controller('MainCtrl', function($scope, $http) {
 
             $http.post("http://0.0.0.0:9292/wishlistslinks?link="+url+"&wishlist_id="+list_id)
             .success(function(data){
+              setPrice(data.id, price)
               $scope.prograssing = false;
               $scope.added = true;
             });
@@ -33,5 +34,13 @@ angular.module('WishList').controller('MainCtrl', function($scope, $http) {
     });
 
 	};
+
+  function setPrice(id, price){
+    $http.put("http://0.0.0.0:9292/wishlistslinks/"+id+"?price="+price)
+    .success(function(data){
+      $scope.prograssing = false;
+      $scope.added = true;
+    });
+  }
 
 });
