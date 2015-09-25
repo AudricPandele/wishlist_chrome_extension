@@ -23,10 +23,23 @@
       <div class="row" ng-hide="prograssing">
         <div class="col s12 m6 center">
 
-          <input ng-hide="added" ng-model="wishlistlink.price" type="number" placeholder="Price if you want">
-          <pre ng-hide="added">Price = {{wishlistlink.price}} €</pre>
+          <div ng-hide="added" class="col s6">
+            <input ng-model="wishlistlink.price" type="number" placeholder="Price">
+          </div>
+          <div ng-hide="added" class="col s6">
+            <select class="browser-default" ng-model="wishlistlink.devise">
+              <option value="" disabled selected>Choose your devise</option>
+              <option value="$">$</option>
+              <option value="€">€</option>
+              <option value="£">£</option>
+            </select>
+          </div>
 
-          <a ng-hide="added" ng-click="addToWishlist(wishlistlink.price)" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Add to WishList</a>
+          <div class="col s12">
+            <pre ng-hide="added">Price = {{wishlistlink.price}} {{wishlistlink.devise}}</pre>
+          </div>
+
+          <a ng-hide="added" ng-click="addToWishlist(wishlistlink.price, wishlistlink.devise)" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Add to WishList</a>
           <a ng-show="added" class="disabled btn"><i class="material-icons left">done</i>Added !</a>
 
         </div>
